@@ -4,7 +4,15 @@ const {
   isValidPassword,
   isRegisteredUser,
   passwordMatches,
+  user3,
+  user1,
+  user2,
+  password1,
+  password2,
+  password3,
 } = require("./main.js");
+
+
 
 // The code immediately above grabs the functions you'll
 // need for this front-end code. Remember that you
@@ -60,3 +68,25 @@ const {
 
 // Being sure to do all that's outlined above, write
 // your code below!
+
+const email = getInput(1);
+const password = getInput(2);
+console.log(email);
+console.log(password);
+
+  if (passwordMatches(email,password)){
+    console.log("Logged in");
+  }
+  if(isRegisteredUser(email)){
+    if(!passwordMatches(email ,password)){
+      console.log("Password Is Incorrect!");
+    }
+  }else{
+    if(isValidEmail(email) && isValidPassword(password)){
+      console.log("Signed Up");
+    }else if (!isValidEmail(email)){
+      console.log("Invalid Email");
+    }else if(!isValidPassword(password)){
+      console.log("Invalid Password");
+    }
+  } 
